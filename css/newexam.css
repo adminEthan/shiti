@@ -1,0 +1,78 @@
+#nav{
+    color: #333;
+    padding-top: 10px;
+    visibility: visible;
+}
+#choose_area{
+    padding: 30px;
+    position: relative;
+}
+.by_type{
+    border-top: 4px solid #e5e5e5;
+    background: #fafafa;
+}
+.types{
+    position: relative;
+    padding: 10px;
+    border-bottom: 1px dotted #cacaca;
+}
+.all_type{
+
+}
+.type_list{
+
+}
+.type_list ul{
+    width: 560px;
+    margin-left: 50px;
+}
+.type_list li{
+    float: left;
+    width: 92px;
+    padding: 10px 0;
+    text-align: center;
+    cursor: pointer;
+    margin: 3px 8px;
+    height: 38px;
+    line-height: 38px;
+    padding: 0 18px;
+    color: #333;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 14px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.type_list li:hover{
+    background: #1E9FFF;
+    color: #fff;
+}
+.type_list li.on{
+    background: #1E9FFF;
+    color: #fff;
+}
+.options{
+    position: absolute;
+    right: 10px;
+}
+.all{
+    margin-left: 20px;
+}
+.more_active{
+    font-size: 14px;
+    cursor: pointer;
+}
+.many{
+    margin-right: 10px;
+}
+.layui-tab-title .layui-this{
+    color: #f40;
+}
+#test_area td,#test_area th{
+    text-align: center;
+}
+.splits{
+    position: relative;
+    top: -1px;
+}

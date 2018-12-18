@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="../css/pub.css">
+    <style type="text/css">
+    .header {
+        height: 60px;
+        line-height: 60px;
+        padding: 0 15px;
+        color: #fff;
+        background-color: #393D49
+    }
+
+    .uploadBox {
+        width: 1200px;
+        margin: 20px auto 0;
+    }
+
+    .header .right a {
+        margin-left: 20px;
+        color: #fff;
+    }
+
+    .header .right a:hover {
+        color: #ac6767;
+    }
+    .changepwd > div{
+        margin-bottom: 10px;
+    }
+    .changepwd > div input{
+        padding: 3px 0;
+        padding-left: 5px;
+    }
+    .wrapper{
+        width: 1200px;
+        margin: 0 auto
+    }
+    .unUpload{
+        margin-top: 80px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="header clear">
+        <div class="right">
+            <span>尊敬的老师： <em>吴老师</em> 您好</span>
+            <a href="javascript:changePwd()">修改密码</a>
+            <a href="javascript:;">退出</a>
+        </div>
+    </div>
+    <div class="uploadBox">
+        <div class="layui-upload">
+            <button type="button" class="layui-btn layui-btn-normal" id="testList">选择doc试题文件</button>
+            <div class="layui-upload-list">
+                <table class="layui-table">
+                    <thead>
+                        <tr>
+                            <th>文件名</th>
+                            <th>大小</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="demoList"></tbody>
+                </table>
+            </div>
+            <button type="button" class="layui-btn" id="testListAction">开始上传</button>
+        </div>
+    </div>
+
+    <div class="wrapper unUpload">
+        <p>未提交至后台的文件</p>
+        <ul>
+            <li><a href="#">464a9fasdf7g8a7g8arsg.html</a></li>
+            <li><a href="#">464a9fasdf7g8a7g8arsg.html</a></li>
+            <li><a href="#">464a9fasdf7g8a7g8arsg.html</a></li>
+            <li><a href="#">464a9fasdf7g8a7g8arsg.html</a></li>
+            <li><a href="#">464a9fasdf7g8a7g8arsg.html</a></li>
+        </ul>
+    </div>
+    <script src="../layui/layui.js"></script>
+    <script>
+    //prompt层
+    function changePwd() {
+        layer.prompt({ title: '请输入您当前的密码', formType: 1 }, function(pass, index) {
+            layer.close(index);
+            layer.open({
+                type: 1 ,//Page层类型
+                area: ['300px', '220px'],
+                title: '修改新密码',
+                shade: 0.6,
+                anim: 1, //0-6的动画形式，-1不开启
+                content: "<div style='padding:30px;' class='changepwd'><div><label>新密码：</label><input type='password'placeholder='请输入新密码'id='Pwd'></div><div><label>新密码：</label><input type='password'placeholder='请再次输入'id='rPwd'></div><div style='margin-top:10px'><button class='layui-btn layui-btn-sm'>提交</button></div></div>"
+            });
+        });
+    };
+
+
+    layui.use('upload', function() {
+        var $ = layui.jquery,
+            upload = layui.upload;
+        //拖拽上传
+        var demoListView = $('#demoList'),
+            uploadListIns = upload.render({
+                elem: '#testList',
+                url: '/upload/',
+                accept: 'file',
+                multiple: true,
+                auto: false,
+                bindAction: '#testListAction',
+                choose: function(obj) {
+                    var files = this.files = obj.pushFile(); //将每次选择的文件追加到文件队列
+                    //读取本地文件
+                    obj.preview(function(index, file, result) {
+                        var tr = $(['<tr id="upload-' + index + '">', '<td>' + file.name + '</td>', '<td>' + (file.size / 1014).toFixed(1) + 'kb</td>', '<td>等待上传</td>', '<td>', '<button class="layui-btn layui-btn-xs demo-reload layui-hide">重传</button>', '<button class="layui-btn layui-btn-xs layui-btn-danger demo-delete">删除</button>', '</td>', '</tr>'].join(''));
+
+                        //单个重传
+                        tr.find('.demo-reload').on('click', function() {
+                            obj.upload(index, file);
+                        });
+
+                        //删除
+                        tr.find('.demo-delete').on('click', function() {
+                            delete files[index]; //删除对应的文件
+                            tr.remove();
+                            uploadListIns.config.elem.next()[0].value = ''; //清空 input file 值，以免删除后出现同名文件不可选
+                        });
+
+                        demoListView.append(tr);
+                    });
+                },
+                done: function(res, index, upload) {
+                    if (res.code == 0) { //上传成功
+                        var tr = demoListView.find('tr#upload-' + index),
+                            tds = tr.children();
+                        tds.eq(2).html('<span style="color: #5FB878;">上传成功</span>');
+                        tds.eq(3).html(''); //清空操作
+                        return delete this.files[index]; //删除文件队列已经上传成功的文件
+                    }
+                    this.error(index, upload);
+                },
+                error: function(index, upload) {
+                    var tr = demoListView.find('tr#upload-' + index),
+                        tds = tr.children();
+                    tds.eq(2).html('<span style="color: #FF5722;">上传失败</span>');
+                    tds.eq(3).find('.demo-reload').removeClass('layui-hide'); //显示重传
+                }
+            });
+    });
+    </script>
+</body>
+
+</html>

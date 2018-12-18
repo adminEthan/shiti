@@ -1,0 +1,30 @@
+.head_main{
+    position: relative;
+    height: 90px;
+    background-color: #fff;
+    box-shadow: 0px 15px 0px #ebebeb;
+}
+.split{
+    margin: 0 17px 0 74px;
+    font-size: 18px;
+    color: #959595;
+    line-height: 90px;
+}
+.welcome{
+    color: #959595;
+    font-size: 18px;
+    line-height: 90px;
+}
+.tohome{
+    color: #959595;
+    font-size: 18px;
+    float: right;
+    margin-top: 33px;
+}
+.bggroup{
+
+}
+.bggroup img{
+    float: left;
+    width: 50%;
+}

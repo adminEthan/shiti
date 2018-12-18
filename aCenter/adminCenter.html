@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="../css/pub.css">
+    <style type="text/css">
+    .header {
+        height: 60px;
+        line-height: 60px;
+        padding: 0 15px;
+        color: #fff;
+        background-color: #393D49
+    }
+
+    .header .right a {
+        margin-left: 20px;
+        color: #fff;
+    }
+
+    .header .right a:hover {
+        color: #ac6767;
+    }
+    .changepwd > div{
+        margin-bottom: 10px;
+    }
+    .changepwd > div input{
+        padding: 3px 0;
+        padding-left: 5px;
+    }
+    .wrapper{
+        width: 1200px;
+        margin: 20px auto 0;
+    }
+    td{
+        padding: 6px;
+        border: 1px solid #ccc;
+        text-align: center;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="header clear">
+        <div class="right">
+            <span>超管 您好</span>
+            <a href="javascript:changePwd()">修改密码</a>
+            <a href="javascript:;">退出</a>
+        </div>
+    </div>
+    <div class="wrapper">
+        <p>普通用户：</p>
+        <table id="stu">
+            <tr>
+                <td><input type="checkbox" id="ckAll"><label for="ckAll">全选</label></td>
+                <td>序号</td>
+                <td>用户名</td>
+                <td>注册时间</td>
+                <td>操作</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>1</td>
+                <td>admin@qq.com</td>
+                <td>2018-12-17</td>
+                <td><button>删除</button></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>1</td>
+                <td>admin@qq.com</td>
+                <td>2018-12-17</td>
+                <td><button>删除</button></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>1</td>
+                <td>admin@qq.com</td>
+                <td>2018-12-17</td>
+                <td><button>删除</button></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>1</td>
+                <td>admin@qq.com</td>
+                <td>2018-12-17</td>
+                <td><button>删除</button></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>1</td>
+                <td>admin@qq.com</td>
+                <td>2018-12-17</td>
+                <td><button>删除</button></td>
+            </tr>
+        </table>
+
+        <p style="margin-top: 40px">教师用户：</p>
+        <table id="stu">
+            <tr>
+                <td></td>
+                <td>序号</td>
+                <td>用户名</td>
+                <td>注册时间</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>1</td>
+                <td>admin@qq.com</td>
+                <td>2018-12-17</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>1</td>
+                <td>admin@qq.com</td>
+                <td>2018-12-17</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>1</td>
+                <td>admin@qq.com</td>
+                <td>2018-12-17</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>1</td>
+                <td>admin@qq.com</td>
+                <td>2018-12-17</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>1</td>
+                <td>admin@qq.com</td>
+                <td>2018-12-17</td>
+            </tr>
+        </table>
+
+
+    </div>
+</body>
+<script src="../layui/layui.js"></script>
+<script type="text/javascript">
+layui.use('layer', function() {
+    var $ = layui.jquery,
+        layer = layui.layer;
+
+})
+
+function changePwd() {
+    layer.prompt({ title: '请输入您当前的密码', formType: 1 }, function(pass, index) {
+        layer.close(index);
+        layer.open({
+            type: 1, //Page层类型
+            area: ['300px', '220px'],
+            title: '修改新密码',
+            shade: 0.6,
+            anim: 1, //0-6的动画形式，-1不开启
+            content: "<div style='padding:30px;' class='changepwd'><div><label>新密码：</label><input type='password'placeholder='请输入新密码'id='Pwd'></div><div><label>新密码：</label><input type='password'placeholder='请再次输入'id='rPwd'></div><div style='margin-top:10px'><button class='layui-btn layui-btn-sm'>提交</button></div></div>"
+        });
+    });
+};
+</script>
+
+</html>

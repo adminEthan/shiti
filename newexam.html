@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/newexam.css">
+    <link rel="shortcut icon " type="images/x-icon" href="img/index/shorticon.png">
+</head>
+<body>
+    <div class="header"> 
+        <div class="tops">
+            <div class="layui-container">
+                <div class="layui-row">
+                    <a href="index.html" class="f-left toindex"><i class="layui-icon layui-icon-home" style="font-size:14px;margin-right:.5rem"></i>乙墨数学官方网站</a>
+                    <ul class="option_list f-right">
+                        <li>
+                            <a href="login.html">登陆</a>
+                        </li>
+                        <li>|</li>
+                        <li>
+                            <a href="help.html">帮助中心</a>
+                        </li>
+                        <li>|</li>
+                        <li>咨询热线：00-0000</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="head_main">
+            <div class="layui-container">
+                <div class="layui-row">
+                    <div class="logo f-left">
+                        <img src="img/index/logo.png" alt="乙墨教学" title="乙墨教学">
+                    </div>
+                    <div class="head_nav f-right">
+                            <div class="serach f-right">
+                                <input type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+                                <i class="layui-icon layui-icon-search ser"></i>
+                            </div>
+                        <ul class="f-right">
+                            <!-- <li class="project">
+                                <span class="dropdown">高中试题</span>
+                                <i class="layui-icon layui-icon-triangle-d"></i>
+                            </li> -->
+                            <li><a href="index.html">首页</a></li>
+                            <li><a href="newexam.html" class="nav-on">最新试题</a></li>
+                            <li><a href="">手动组卷</a></li>   
+                            <li><a href="">智能组卷</a></li>   
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="layui-container main_bd">
+        <div>
+            <span>位置：</span>
+            <span class="layui-breadcrumb" lay-separator="|" id="nav">
+                <a href="index.html">首页</a>
+                <a href="newexam.html">最新试题</a>
+            </span>
+        </div>
+        <div class="layui-row">
+            <div class="layui-col-sm11 f-right" id="choose_area">
+                <div class="by_type">
+                    <div class="types clearfix">
+                        <div class="all_type f-left">
+                            <span>类型:</span>
+                            <button class="layui-btn layui-btn-normal all">全部</button>
+                        </div>
+                        <div class="type_list f-left">
+                            <ul class="f-left chooes_lists">
+                                <li>月考</li>
+                                <li>期中</li>
+                                <li>期末</li>
+                                <li>高考</li>
+                                <li>模拟</li>
+                                <li>专题</li>
+                                <li>竞赛</li>
+                                <li>自主招生</li>
+                                <li>其他</li>
+                            </ul>
+                            <div class="options">
+                                <button class="layui-btn layui-btn-primary many">多选</button>
+                                <span class="more_active color-g">更多<i class="layui-icon layui-icon-down"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="types clearfix">
+                            <div class="all_type f-left">
+                                <span>地区:</span>
+                                <button class="layui-btn layui-btn-normal all">全部</button>
+                            </div>
+                            <div class="type_list f-left">
+                                <ul class="f-left chooes_lists">
+                                    <li>北京</li>
+                                    <li>天津</li>
+                                    <li>重庆</li>
+                                    <li>上海</li>
+                                    <li>黑龙江</li>
+                                    <li>内蒙古</li>
+                                    <li>四川</li>
+                                    <li>安徽</li>
+                                    <li>山东</li>
+                                    <li>广西</li>
+                                    <li>四川</li>
+                                    <li>安徽</li>
+                                    <li>山东</li>
+                                    <li>广西</li>
+                                </ul>
+                                <div class="options">
+                                    <button class="layui-btn layui-btn-primary many">多选</button>
+                                    <span class="more_active color-g">更多<i class="layui-icon layui-icon-down"></i></span>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="types clearfix">
+                            <div class="all_type f-left">
+                                <span>年级:</span>
+                                <button class="layui-btn layui-btn-normal all">不限</button>
+                            </div>
+                            <div class="type_list f-left">
+                                <ul class="f-left chooes_lists">
+                                    <li>高一数学</li>
+                                    <li>高二数学</li>
+                                    <li>高三数学</li>
+                                    <li>选修</li>
+                                </ul>
+                                <div class="options">
+                                    <button class="layui-btn layui-btn-primary many">多选</button>
+                                    <span class="more_active color-g">更多<i class="layui-icon layui-icon-down"></i></span>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="layui-tab layui-tab-card" id="test_area">
+                    <ul class="layui-tab-title">
+                        <li class="layui-this">发布日期</li>
+                        <li>学籍</li>
+                        <li>题数</li>
+                        <li>阅览</li>
+                    </ul>
+                    <div class="layui-tab-content">
+                        <div class="layui-tab-item layui-show">
+                            <table class="layui-table">
+                                <thead>
+                                    <tr>
+                                        <th>序号</th>
+                                        <th>试卷标题</th>
+                                        <th>学籍</th>
+                                        <th>题数</th>
+                                        <th>阅览</th>
+                                        <th>发布日期</th>
+                                        <th>操作</th>
+                                    </tr> 
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>01</td>
+                                        <td>安徽省安庆市五校联盟2018-2019学年高二上学期期中联考数学（文）试卷</td>
+                                        <td>高二</td>
+                                        <td>22</td>
+                                        <td>10</td>
+                                        <td>2018-12-10</td>
+                                        <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>01</td>
+                                        <td>安徽省安庆市五校联盟2018-2019学年高二上学期期中联考数学（文）试卷</td>
+                                        <td>高二</td>
+                                        <td>22</td>
+                                        <td>10</td>
+                                        <td>2018-12-10</td>
+                                        <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>01</td>
+                                        <td>安徽省安庆市五校联盟2018-2019学年高二上学期期中联考数学（文）试卷</td>
+                                        <td>高二</td>
+                                        <td>22</td>
+                                        <td>10</td>
+                                        <td>2018-12-10</td>
+                                        <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                    </tr>
+                                    <tr>
+                                            <td>01</td>
+                                            <td>安徽省安庆市五校联盟2018-2019学年高二上学期期中联考数学（文）试卷</td>
+                                            <td>高二</td>
+                                            <td>22</td>
+                                            <td>10</td>
+                                            <td>2018-12-10</td>
+                                            <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01</td>
+                                            <td>安徽省安庆市五校联盟2018-2019学年高二上学期期中联考数学（文）试卷</td>
+                                            <td>高二</td>
+                                            <td>22</td>
+                                            <td>10</td>
+                                            <td>2018-12-10</td>
+                                            <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01</td>
+                                            <td>安徽省安庆市五校联盟2018-2019学年高二上学期期中联考数学（文）试卷</td>
+                                            <td>高二</td>
+                                            <td>22</td>
+                                            <td>10</td>
+                                            <td>2018-12-10</td>
+                                            <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                        </tr>
+                                        <tr>
+                                                <td>01</td>
+                                                <td>安徽省安庆市五校联盟2018-2019学年高二上学期期中联考数学（文）试卷</td>
+                                                <td>高二</td>
+                                                <td>22</td>
+                                                <td>10</td>
+                                                <td>2018-12-10</td>
+                                                <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>01</td>
+                                                <td>安徽省安庆市五校联盟2018-2019学年高二上学期期中联考数学（文）试卷</td>
+                                                <td>高二</td>
+                                                <td>22</td>
+                                                <td>10</td>
+                                                <td>2018-12-10</td>
+                                                <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>01</td>
+                                                <td>安徽省安庆市五校联盟2018-2019学年高二上学期期中联考数学（文）试卷</td>
+                                                <td>高二</td>
+                                                <td>22</td>
+                                                <td>10</td>
+                                                <td>2018-12-10</td>
+                                                <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                            </tr>
+                                            <tr>
+                                        <td>01</td>
+                                        <td>安徽省安庆市五校联盟2018-2019学年高二上学期期中联考数学（文）试卷</td>
+                                        <td>高二</td>
+                                        <td>22</td>
+                                        <td>10</td>
+                                        <td>2018-12-10</td>
+                                        <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>01</td>
+                                        <td>安徽省安庆市五校联盟2018-2019学年高二上学期期中联考数学（文）试卷</td>
+                                        <td>高二</td>
+                                        <td>22</td>
+                                        <td>10</td>
+                                        <td>2018-12-10</td>
+                                        <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>01</td>
+                                        <td>安徽省安庆市五校联盟2018-2019学年高二上学期期中联考数学（文）试卷</td>
+                                        <td>高二</td>
+                                        <td>22</td>
+                                        <td>10</td>
+                                        <td>2018-12-10</td>
+                                        <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div id="pagebar1" class="text-center"></div>
+                        </div>
+                        <div class="layui-tab-item">
+                            <table class="layui-table">
+                                <thead>
+                                    <tr>
+                                        <th>序号</th>
+                                        <th>试卷标题</th>
+                                        <th>学籍</th>
+                                        <th>题数</th>
+                                        <th>阅览</th>
+                                        <th>发布日期</th>
+                                        <th>操作</th>
+                                    </tr> 
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>01</td>
+                                        <td>安徽省安庆市五校联盟2018-2019学年高二上学期</td>
+                                        <td>高二</td>
+                                        <td>22</td>
+                                        <td>10</td>
+                                        <td>2018-12-10</td>
+                                        <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>01</td>
+                                        <td>安徽省安庆市五校联盟2018-2019学年高二上学期</td>
+                                        <td>高二</td>
+                                        <td>22</td>
+                                        <td>10</td>
+                                        <td>2018-12-10</td>
+                                        <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>01</td>
+                                        <td>安徽省安庆市五校联盟2018-2019学年高二上学期</td>
+                                        <td>高二</td>
+                                        <td>22</td>
+                                        <td>10</td>
+                                        <td>2018-12-10</td>
+                                        <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                    </tr>
+                                    <tr>
+                                            <td>01</td>
+                                            <td>安徽省安庆市五校联盟2018-2019学年高二上学期</td>
+                                            <td>高二</td>
+                                            <td>22</td>
+                                            <td>10</td>
+                                            <td>2018-12-10</td>
+                                            <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01</td>
+                                            <td>安徽省安庆市五校联盟2018-2019学年高二上学期</td>
+                                            <td>高二</td>
+                                            <td>22</td>
+                                            <td>10</td>
+                                            <td>2018-12-10</td>
+                                            <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01</td>
+                                            <td>安徽省安庆市五校联盟2018-2019学年高二上学期</td>
+                                            <td>高二</td>
+                                            <td>22</td>
+                                            <td>10</td>
+                                            <td>2018-12-10</td>
+                                            <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01</td>
+                                            <td>安徽省安庆市五校联盟2018-2019学年高二上学期</td>
+                                            <td>高二</td>
+                                            <td>22</td>
+                                            <td>10</td>
+                                            <td>2018-12-10</td>
+                                            <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01</td>
+                                            <td>安徽省安庆市五校联盟2018-2019学年高二上学期</td>
+                                            <td>高二</td>
+                                            <td>22</td>
+                                            <td>10</td>
+                                            <td>2018-12-10</td>
+                                            <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01</td>
+                                            <td>安徽省安庆市五校联盟2018-2019学年高二上学期</td>
+                                            <td>高二</td>
+                                            <td>22</td>
+                                            <td>10</td>
+                                            <td>2018-12-10</td>
+                                            <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01</td>
+                                            <td>安徽省安庆市五校联盟2018-2019学年高二上学期</td>
+                                            <td>高二</td>
+                                            <td>22</td>
+                                            <td>10</td>
+                                            <td>2018-12-10</td>
+                                            <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01</td>
+                                            <td>安徽省安庆市五校联盟2018-2019学年高二上学期</td>
+                                            <td>高二</td>
+                                            <td>22</td>
+                                            <td>10</td>
+                                            <td>2018-12-10</td>
+                                            <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01</td>
+                                            <td>安徽省安庆市五校联盟2018-2019学年高二上学期卷</td>
+                                            <td>高二</td>
+                                            <td>22</td>
+                                            <td>10</td>
+                                            <td>2018-12-10</td>
+                                            <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                            <div id="pagebar2" class="text-center"></div>
+                        </div>
+                        <div class="layui-tab-item">
+                            <table class="layui-table">
+                                <thead>
+                                    <tr>
+                                        <th>序号</th>
+                                        <th>试卷标题</th>
+                                        <th>学籍</th>
+                                        <th>题数</th>
+                                        <th>阅览</th>
+                                        <th>发布日期</th>
+                                        <th>操作</th>
+                                    </tr> 
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>01</td>
+                                        <td>安徽省安庆市五校联盟2018-2019学年高二上学期期中联考数学（文）试卷</td>
+                                        <td>高二</td>
+                                        <td>22</td>
+                                        <td>10</td>
+                                        <td>2018-12-10</td>
+                                        <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>01</td>
+                                        <td>安徽省安庆市五校联盟2018-2019学年高二上学期期中联考数学（文）试卷</td>
+                                        <td>高二</td>
+                                        <td>22</td>
+                                        <td>10</td>
+                                        <td>2018-12-10</td>
+                                        <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>01</td>
+                                        <td>安徽省安庆市五校联盟2018-2019学年高二上学期期中联考数学（文）试卷</td>
+                                        <td>高二</td>
+                                        <td>22</td>
+                                        <td>10</td>
+                                        <td>2018-12-10</td>
+                                        <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                    </tr>
+                                    <tr>
+                                            <td>01</td>
+                                            <td>安徽省安庆市五校联盟2018-2019学年高二上学期期中联考数学（文）试卷</td>
+                                            <td>高二</td>
+                                            <td>22</td>
+                                            <td>10</td>
+                                            <td>2018-12-10</td>
+                                            <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01</td>
+                                            <td>安徽省安庆市五校联盟2018-2019学年高二上学期期中联考数学（文）试卷</td>
+                                            <td>高二</td>
+                                            <td>22</td>
+                                            <td>10</td>
+                                            <td>2018-12-10</td>
+                                            <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01</td>
+                                            <td>安徽省安庆市五校联盟2018-2019学年高二上学期期中联考数学（文）试卷</td>
+                                            <td>高二</td>
+                                            <td>22</td>
+                                            <td>10</td>
+                                            <td>2018-12-10</td>
+                                            <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                        </tr>
+                                        <tr>
+                                                <td>01</td>
+                                                <td>安徽省安庆市五校联盟2018-2019学年高二上学期期中联考数学（文）试卷</td>
+                                                <td>高二</td>
+                                                <td>22</td>
+                                                <td>10</td>
+                                                <td>2018-12-10</td>
+                                                <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>01</td>
+                                                <td>安徽省安庆市五校联盟2018-2019学年高二上学期期中联考数学（文）试卷</td>
+                                                <td>高二</td>
+                                                <td>22</td>
+                                                <td>10</td>
+                                                <td>2018-12-10</td>
+                                                <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>01</td>
+                                                <td>安徽省安庆市五校联盟2018-2019学年高二上学期期中联考数学（文）试卷</td>
+                                                <td>高二</td>
+                                                <td>22</td>
+                                                <td>10</td>
+                                                <td>2018-12-10</td>
+                                                <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                            </tr>
+                                            <tr>
+                                        <td>01</td>
+                                        <td>安徽省安庆市五校联盟2018-2019学年高二上学期期中联考数学（文）试卷</td>
+                                        <td>高二</td>
+                                        <td>22</td>
+                                        <td>10</td>
+                                        <td>2018-12-10</td>
+                                        <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>01</td>
+                                        <td>安徽省安庆市五校联盟2018-2019学年高二上学期期中联考数学（文）试卷</td>
+                                        <td>高二</td>
+                                        <td>22</td>
+                                        <td>10</td>
+                                        <td>2018-12-10</td>
+                                        <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>01</td>
+                                        <td>安徽省安庆市五校联盟2018-2019学年高二上学期期中联考数学（文）试卷</td>
+                                        <td>高二</td>
+                                        <td>22</td>
+                                        <td>10</td>
+                                        <td>2018-12-10</td>
+                                        <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div id="pagebar3" class="text-center"></div>
+                        </div>
+                        <div class="layui-tab-item">
+                             <table class="layui-table">
+                                <thead>
+                                    <tr>
+                                        <th>序号</th>
+                                        <th>试卷标题</th>
+                                        <th>学籍</th>
+                                        <th>题数</th>
+                                        <th>阅览</th>
+                                        <th>发布日期</th>
+                                        <th>操作</th>
+                                    </tr> 
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>01</td>
+                                        <td>安徽省安庆市五校联盟2018-2019学年高二上学期</td>
+                                        <td>高二</td>
+                                        <td>22</td>
+                                        <td>10</td>
+                                        <td>2018-12-10</td>
+                                        <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>01</td>
+                                        <td>安徽省安庆市五校联盟2018-2019学年高二上学期</td>
+                                        <td>高二</td>
+                                        <td>22</td>
+                                        <td>10</td>
+                                        <td>2018-12-10</td>
+                                        <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>01</td>
+                                        <td>安徽省安庆市五校联盟2018-2019学年高二上学期</td>
+                                        <td>高二</td>
+                                        <td>22</td>
+                                        <td>10</td>
+                                        <td>2018-12-10</td>
+                                        <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                    </tr>
+                                    <tr>
+                                            <td>01</td>
+                                            <td>安徽省安庆市五校联盟2018-2019学年高二上学期</td>
+                                            <td>高二</td>
+                                            <td>22</td>
+                                            <td>10</td>
+                                            <td>2018-12-10</td>
+                                            <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01</td>
+                                            <td>安徽省安庆市五校联盟2018-2019学年高二上学期</td>
+                                            <td>高二</td>
+                                            <td>22</td>
+                                            <td>10</td>
+                                            <td>2018-12-10</td>
+                                            <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01</td>
+                                            <td>安徽省安庆市五校联盟2018-2019学年高二上学期</td>
+                                            <td>高二</td>
+                                            <td>22</td>
+                                            <td>10</td>
+                                            <td>2018-12-10</td>
+                                            <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01</td>
+                                            <td>安徽省安庆市五校联盟2018-2019学年高二上学期</td>
+                                            <td>高二</td>
+                                            <td>22</td>
+                                            <td>10</td>
+                                            <td>2018-12-10</td>
+                                            <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01</td>
+                                            <td>安徽省安庆市五校联盟2018-2019学年高二上学期</td>
+                                            <td>高二</td>
+                                            <td>22</td>
+                                            <td>10</td>
+                                            <td>2018-12-10</td>
+                                            <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01</td>
+                                            <td>安徽省安庆市五校联盟2018-2019学年高二上学期</td>
+                                            <td>高二</td>
+                                            <td>22</td>
+                                            <td>10</td>
+                                            <td>2018-12-10</td>
+                                            <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01</td>
+                                            <td>安徽省安庆市五校联盟2018-2019学年高二上学期</td>
+                                            <td>高二</td>
+                                            <td>22</td>
+                                            <td>10</td>
+                                            <td>2018-12-10</td>
+                                            <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01</td>
+                                            <td>安徽省安庆市五校联盟2018-2019学年高二上学期</td>
+                                            <td>高二</td>
+                                            <td>22</td>
+                                            <td>10</td>
+                                            <td>2018-12-10</td>
+                                            <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01</td>
+                                            <td>安徽省安庆市五校联盟2018-2019学年高二上学期卷</td>
+                                            <td>高二</td>
+                                            <td>22</td>
+                                            <td>10</td>
+                                            <td>2018-12-10</td>
+                                            <td><a href="">试卷分析</a><span class="splits">|</span><a href="">下载</a></td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                            <div id="pagebar4" class="text-center"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="layui-container">
+            <div class="layui-row">
+                <ul class="foot_list layui-col-sm2">
+                    <li>
+                        <a href="newexam.html">最新试题</a>
+                    </li>
+                    <li>
+                        <a href="">帮助中心</a>
+                    </li>
+                </ul>
+                <div class="layui-col-sm6 web_desc">
+                    <h3>网站介绍</h3>
+                    <p>乙墨数学网，一个依托百万量级的高中在线题库创建的组卷系统，试卷涵盖全国各地高中学科教材版本，试题质量高、更新快，是深受广大高中教师喜爱的在线组卷平台</p>
+                </div>
+                <div class="layui-col-sm4 call">
+                    <p class="hot_time">客服热线（工作日：9:00—18:00）</p>
+                    <p class="hot_line">400-0000-000</p>
+                    <button class="ask">
+                        <i style="font-size:16px" class="layui-icon layui-icon-login-qq"></i>在线咨询
+                    </button>
+                </div>
+            </div>
+            <div class="layui-row copy">
+                <p class="text-center color-g">
+                        电话：000-0000000 客服QQ：00000000 传真：0000000000 邮箱：abc@yimo.com 地址：成都市金牛区胡同街电子大厦15F07室
+                </p>
+                <p class="text-center color-g">2018  蜀ICP备5971531号</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+<script type="text/javascript" src="layui/layui.js"></script>
+<script type="text/javascript" src="js/newexam.js"></script>
